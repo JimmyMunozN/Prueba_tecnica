@@ -1,0 +1,85 @@
+body{
+    background-color: #6198A4;
+    text-align: center;
+}
+h1{
+    font-family: fantasy;
+    font-weight: 80;
+    font-size: 50px; 
+    COLOR: rgb(0, 0, 0); 
+    text-shadow: 0px 0px 9px rgb(255, 255, 255);
+}
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+table, th, td {
+    border: 1px solid beige;
+    padding: 10px;
+}
+td {
+    position: relative;
+    background-color: bisque;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    width: 75px;
+    cursor: pointer;
+}
+.desactivado {
+    background-color: rgb(230, 168, 53);
+}
+.celdaX {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+button {
+    width: 200px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.27);
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.border {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    border: 1px solid white;
+    transition: width 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+.border.top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.border.bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button:hover .border {
+    width: 100%;
+    visibility: visible;
+}

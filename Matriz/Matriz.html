@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matriz</title>
+    <link rel="Stylesheet" href="estilo.css" />
+</head>
+<body>
+    <h1>Matriz</h1>
+    <table id="matriz"></table>
+    <div class="buttonContainer">
+        <button id="second" onclick="seleccionarCeldaAleatoria ()">
+            Selección aleatoria
+            <div class="border top"></div>
+            <div class="border bottom"></div>
+        </button>
+    </div>
+    <script>
+        const numColumnas = 5;
+        const numFilas = 10;
+
+        const desactivarCeldas = Array.from({ length: numFilas }, () => Array(numColumnas).fill(false));
+
+        function generarMatriz() {
+            const table = document.getElementById('matriz');
+            let numeracion = 1;
+
+            for (let i = 0; i < numFilas; i++) {
+                const fila = document.createElement("tr");
+                
+                for (let j = 0; j < numColumnas; j++) {
+                    const celda = document.createElement('td');
+                    celda.textContent = numeracion;
+                    celda.id = `celda-${i}-${j}`;
+                    celda.onclick = () => seleccionarCelda(i, j);
+                    fila.appendChild(celda);
+                    numeracion++;
+                }
+
+                table.appendChild(fila);
+            }
+        }
+
+        function seleccionarCelda(fila, columna) {
+            if (desactivarCeldas[fila][columna]) {
+                return;
+            }
+
+            for (let i = 0; i < numColumnas; i++) {
+                const celda = document.getElementById(`celda-${fila}-${i}`);
+                if (celda) {
+                    celda.classList.add("desactivado");
+                    desactivarCeldas[fila][i] = true;
+                }
+                const celdaSeleccionada = document.getElementById(`celda-${fila}-${columna}`);
+                if (celdaSeleccionada) {
+                    celdaSeleccionada.textContent = "X";
+                    celdaSeleccionada.classList.add ("celdaX");
+                }
+            }
+
+            for (let j = 0; j < numFilas; j++) {
+                const celda = document.getElementById(`celda-${j}-${columna}`);
+                if (celda) {
+                    celda.classList.add("desactivado");
+                    desactivarCeldas[j][columna] = true;
+                }
+            }
+        }
+
+        function seleccionarCeldaAleatoria() {
+            let filaAleatoria, columnaAleatoria;
+
+            do {
+                filaAleatoria = Math.floor(Math.random() * numFilas);
+                columnaAleatoria = Math.floor(Math.random() * numColumnas);
+            } while (desactivarCeldas[filaAleatoria][columnaAleatoria]);
+
+            seleccionarCelda(filaAleatoria, columnaAleatoria);
+        }
+
+        document.addEventListener("DOMContentLoaded", generarMatriz);
+    </script>
+
+</body>
+</html>
