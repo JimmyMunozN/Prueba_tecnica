@@ -104,18 +104,18 @@ Prueba tecnica trabajo Accedo
 <p>
 Matriz generada con javascript, donde se pueden seleccionar sus celdas y esto desactivará la posible seleccion de sus respectivas filas y columnas.
 <p/>
-![](Assets/Matriz.jpg)
+![](Imagenes/Matriz.jpg)
 
 ### Selección de celda
 
 <p>
 Se puede seleccionar cualquier celda de la matriz, a no ser que estas estén deshabilitadas.
 <p/>
-![](Assets/Seleccion.jpg)
+![](Imagenes/Seleccion.jpg)
 
 ### Boton de selección aleatoria
 
 <p>
 Se añade un boton con la funcion de elegir una casilla aleatoria de la matriz y deshabilitar sus respectivas filas y columnas.
 <p/>
-![](Assets/Boton.jpg)
+![](Imagenes/Boton.jpg)
